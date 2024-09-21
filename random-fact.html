@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Cat Fact</title>
+</head>
+<body>
+  <h1>Random Cat Fact</h1>
+  <p id="fact"></p>
+
+  <script>
+    fetch('catfacts.json')
+      .then(response => response.json())
+      .then(data => {
+        const facts = data.facts;
+        const randomFact = facts[Math.floor(Math.random() * facts.length)];
+        document.getElementById('fact').innerText = randomFact;
+      });
+  </script>
+</body>
+</html>
